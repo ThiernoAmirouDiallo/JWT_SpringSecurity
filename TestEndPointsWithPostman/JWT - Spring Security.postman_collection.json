@@ -1,0 +1,332 @@
+{
+	"info": {
+		"_postman_id": "f942b62c-44fe-42a0-bd0a-fbe851036baa",
+		"name": "JWT - Spring Security",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"platon\",\n\t\"password\":\"user\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8989/api/auth/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"api",
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signin admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"admin\",\n\t\"password\":\"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8989/api/auth/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"api",
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refreshToken",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU3Mzg1ODAyMiwiZXhwIjoxNTczOTQ0NDIyfQ._VQalNdNM9bm9hjGWXE7nl8otiWE2ixtU2PqdmncYnbyftfWzkvnx8r858Qc-CKEx3hj9wcxGgSZTvc5_wdEUg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8989/api/auth/refreshToken",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"api",
+						"auth",
+						"refreshToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refreshToken Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU3Mzg1ODAyMiwiZXhwIjoxNTczOTQ0NDIyfQ._VQalNdNM9bm9hjGWXE7nl8otiWE2ixtU2PqdmncYnbyftfWzkvnx8r858Qc-CKEx3hj9wcxGgSZTvc5_wdEUg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8989/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sign up admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU3Mzg1ODAyMiwiZXhwIjoxNTczOTQ0NDIyfQ._VQalNdNM9bm9hjGWXE7nl8otiWE2ixtU2PqdmncYnbyftfWzkvnx8r858Qc-CKEx3hj9wcxGgSZTvc5_wdEUg",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"idUser\": 3,\r\n        \"username\": \"admin2\",\r\n        \"email\": \"admin2@platon.io\",\r\n        \"password\": \"admin2\",\r\n        \"adresse\": \"admin2\",\r\n        \"enabled\": true,\r\n        \"firstname\": \"admin2\",\r\n        \"lastname\": \"admin2\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8989/users/admin",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"users",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sign up user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU3Mzg1ODAyMiwiZXhwIjoxNTczOTQ0NDIyfQ._VQalNdNM9bm9hjGWXE7nl8otiWE2ixtU2PqdmncYnbyftfWzkvnx8r858Qc-CKEx3hj9wcxGgSZTvc5_wdEUg",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n        \"username\": \"user2\",\r\n        \"email\": \"user2@platon.io\",\r\n        \"password\": \"user2\",\r\n        \"adresse\": \"user2\",\r\n        \"enabled\": true,\r\n        \"firstname\": \"user2\",\r\n        \"lastname\": \"user2\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8989/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwbGF0b24iLCJpYXQiOjE1NzM4NTgyNzQsImV4cCI6MTU3Mzk0NDY3NH0.0AbxmIA0u8qz3Cwjb5ZAGkS9vAbT2e68DEgrO0KunMixtLF_zPw9vTwdJCmV4xdGYTcGkzTcgkggzm5fFAXpKg",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n        \"username\": \"user2\",\r\n        \"email\": \"user2@platon.io\",\r\n        \"password\": \"user2\",\r\n        \"adresse\": \"user2\",\r\n        \"enabled\": true,\r\n        \"firstname\": \"user2\",\r\n        \"lastname\": \"user2\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8989/users/profile",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change passeword",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwbGF0b24iLCJpYXQiOjE1NzM4NTgyNzQsImV4cCI6MTU3Mzk0NDY3NH0.0AbxmIA0u8qz3Cwjb5ZAGkS9vAbT2e68DEgrO0KunMixtLF_zPw9vTwdJCmV4xdGYTcGkzTcgkggzm5fFAXpKg",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n       \"password\": \"platon\",\r\n        \"newPassword\": \"user\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8989/users/changePassword",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"users",
+						"changePassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change status",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTU3Mzg1ODI3MiwiZXhwIjoxNTczOTQ0NjcyfQ.Beup5GXy-nOPjY_Oir1EaPLr9pZ12ye5g8awJqIVh4euSPA6d_Ppq8cM7C6wdlPRuRpAYF2MW9GCO_sFmXWzaQ",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8989/users/3/changeStatus?status=false",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"users",
+						"3",
+						"changeStatus"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
