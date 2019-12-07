@@ -70,13 +70,19 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
 
 		<!-- Oracle DB: ojdbc6.jar -->
-		<dependency>
+		<!--<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc6_g</artifactId>
 			<version>11.2.0</version>
-		</dependency>
+		</dependency>-->
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -85,10 +91,10 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-		</dependency>
+		</dependency>-->
 
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
@@ -102,10 +108,13 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.tamirou.springboot.jwt.JWTSpringSecurity.JwtSpringSecurityApplication</mainClass>
+				</configuration>
 			</plugin>
 
 			<!-- tag::plugin[] -->
-			<plugin>
+			<!--<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
 				<version>1.4.9</version>
@@ -113,10 +122,11 @@
 					<repository>${docker.image.prefix}/${project.artifactId}</repository>
 				</configuration>
 			</plugin>
+			-->
 			<!-- end::plugin[] -->
 
 			<!-- tag::unpack[] -->
-			<plugin>
+			<!--<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
@@ -138,6 +148,7 @@
 					</execution>
 				</executions>
 			</plugin>
+			-->
 			<!-- end::unpack[] -->
 		</plugins>
 	</build>
