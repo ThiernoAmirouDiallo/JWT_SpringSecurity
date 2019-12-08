@@ -18,6 +18,7 @@ MAINTAINER Thierno Amirou DIALLO thiernoamiroud@gmail.com
 #RUN rm -rf /usr/local/tomcat/webapps/*
 RUN apt-get update && apt-get install -y iputils-ping
 WORKDIR /usr/local/bin
-COPY target/jwtspringsecurity-0.0.1-SNAPSHOT.jar /usr/local/bin/webapp.jar
+#maven dir is relative to the MDP ==> target/docker/thiernoamiroud/spring-boot-jwt/build/maven
+COPY maven/jwtspringsecurity-0.0.1-SNAPSHOT.jar /usr/local/bin/webapp.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-Dspring.profiles.active=docker", "-Dserver.port=8080", "-jar", "webapp.jar" ]
