@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  spring-boot-jwt:
+    image: thiernoamiroud/spring-boot-jwt:mysqldb-docker-maven-plugin
+    networks:
+      - jwt-network
+    ports:
+      - 8989:8080
+    depends_on:
+      - database
+
+  database:
+    image: mysql:5
+    networks:
+      - jwt-network
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=stage
+networks:
+  jwt-network:
+
