@@ -194,10 +194,22 @@
 						<phase>package</phase>
 						<goals>
 							<goal>build</goal>
+						</goals>
+                    </execution>
+                    <execution>
+                        <id>mydeployid</id>
+						<phase>deploy</phase>
+						<goals>
 							<goal>push</goal>
 						</goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
             </plugin>
         </plugins>
     </build>
