@@ -31,40 +31,51 @@ public class DatabaseLoader implements CommandLineRunner {
     @Override
     public void run(String... strings) throws Exception {
         //roles
-        Role role1 = new Role();
-        role1.setName(RoleName.ROLE_ADMIN);
-        Role role2 = new Role();
-        role2.setName(RoleName.ROLE_USER);
+        if (! roleRepository.findByName(RoleName.ROLE_ADMIN).isPresent())
+        {
+            Role role1 = new Role();
+            role1.setName(RoleName.ROLE_ADMIN);
+            roleRepository.save(role1);
+        }
 
-        roleRepository.save(role1);
-        roleRepository.save(role2);
+        if (! roleRepository.findByName(RoleName.ROLE_USER).isPresent())
+        {
+            Role role2 = new Role();
+            role2.setName(RoleName.ROLE_USER);
+            roleRepository.save(role2);
+        }
 
         //admin
-        User user = new User();
-        user.setEmail("admin@platon.io");
-        user.setEnabled(true);
-        user.setUsername("admin");
-        user.setFirstname("admin");
-        user.setLastname("admin");
-        user.setAdresse("admin");
-        user.setPassword(encoder.encode("admin"));
-        user.setCreationDate(new Date());
-        Optional<Role> role = roleRepository.findByName(RoleName.ROLE_ADMIN);
-        user.getRoles().add(role.get());
-        this.userRepository.save(user);
+        if (!userRepository.findByUsername("admin").isPresent()){
+            User user = new User();
+            user.setEmail("admin@platon.io");
+            user.setEnabled(true);
+            user.setUsername("admin");
+            user.setFirstname("admin");
+            user.setLastname("admin");
+            user.setAdresse("admin");
+            user.setPassword(encoder.encode("admin"));
+            user.setCreationDate(new Date());
+            Optional<Role> role = roleRepository.findByName(RoleName.ROLE_ADMIN);
+            user.getRoles().add(role.get());
+            this.userRepository.save(user);
+        }
 
         //user
-        user = new User();
-        user.setEmail("platon@platon.io");
-        user.setEnabled(true);
-        user.setUsername("platon");
-        user.setFirstname("platon");
-        user.setLastname("platon");
-        user.setAdresse("platon");
-        user.setPassword(encoder.encode("platon"));
-        user.setCreationDate(new Date());
-        role = roleRepository.findByName(RoleName.ROLE_USER);
-        user.getRoles().add(role.get());
-        this.userRepository.save(user);
+        if (!userRepository.findByUsername("platon").isPresent()){
+            User user = new User();
+            user.setEmail("platon@platon.io");
+            user.setEnabled(true);
+            user.setUsername("platon");
+            user.setFirstname("platon");
+            user.setLastname("platon");
+            user.setAdresse("platon");
+            user.setPassword(encoder.encode("platon"));
+            user.setCreationDate(new Date());
+            Optional<Role> role = roleRepository.findByName(RoleName.ROLE_USER);
+            user.getRoles().add(role.get());
+            this.userRepository.save(user);
+        }
+
     }
 }
