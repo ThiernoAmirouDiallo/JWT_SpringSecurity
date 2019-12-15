@@ -11,6 +11,9 @@ services:
       - database
     deploy:
       replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 120s
 
   database:
     image: mysql:5
