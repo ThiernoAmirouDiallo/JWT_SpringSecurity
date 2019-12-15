@@ -9,6 +9,8 @@ services:
       - 8989:8080
     depends_on:
       - database
+    deploy:
+      replicas: 1
 
   database:
     image: mysql:5
@@ -19,6 +21,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=stage
+
 networks:
   jwt-network:
 
