@@ -27,4 +27,7 @@ services:
 
 networks:
   jwt-network:
+    ipam: #for EC2 overlay network to work
+      config:
+        - subnet: 172.31.0.0/16
 
