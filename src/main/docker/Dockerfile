@@ -13,7 +13,7 @@
 #docker container run -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=stage -d -p 3306:3306 --network my-network --name database mysql:5
 #docker container run -d --network my-network --name spring-boot-jwt -p 80:8080 thiernoamiroud/spring-boot-jwt:mysqldb-docker-maven-plugin
 #Swarm
-#docker network create --driver overlay my-network
+#docker network create --attachable --driver overlay my-network
 #docker service create -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=stage -d -p 3306:3306 --network my-network --name database mysql:5
 #docker service create -d --network my-network --name spring-boot-jwt -p 80:8080 thiernoamiroud/spring-boot-jwt:mysqldb-docker-maven-plugin
 #docker run -it -d -p 5000:8080 -v /var/run/docker.sock:/var/run/docker.sock dockersamples/visualizer
