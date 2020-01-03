@@ -154,22 +154,22 @@
             </plugin>
             -->
             <!-- end::unpack[] -->
-           <!-- <plugin>
+            <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.31.0</version>
                 <configuration>
-                    &lt;!&ndash;  <dockerHost>http://127.0.0.1:2375</dockerHost> &ndash;&gt;
-                    &lt;!&ndash;  this is for Mac and Amazon Linux &ndash;&gt;
-                    &lt;!&ndash; <dockerHost>unix:///var/run/docker.sock</dockerHost> &ndash;&gt;
+                    <!--  <dockerHost>http://127.0.0.1:2375</dockerHost> -->
+                    <!--  this is for Mac and Amazon Linux -->
+                    <!-- <dockerHost>unix:///var/run/docker.sock</dockerHost> -->
 
                     <verbose>true</verbose>
 
-                    &lt;!&ndash; Needed if pushing to DockerHub: preferred to store these in local environment in .m2/settings.xml in the servers.server section &ndash;&gt;
-                    &lt;!&ndash;<authConfig>
+                    <!-- Needed if pushing to DockerHub: preferred to store these in local environment in .m2/settings.xml in the servers.server section -->
+                    <!--<authConfig>
                         <username>thiernamiroud</username>
                         <password>password</password>
-                    </authConfig>&ndash;&gt;
+                    </authConfig>-->
 
                     <images>
                         <image>
@@ -177,13 +177,13 @@
                             <build>
                                 <dockerFileDir>${project.basedir}/src/main/docker/</dockerFileDir>
 
-                                &lt;!&ndash;copies Jar to the maven directory (uses Assembly system)&ndash;&gt;
+                                <!--copies Jar to the maven directory (uses Assembly system)-->
                                 <assembly>
                                     <descriptorRef>artifact</descriptorRef>
                                 </assembly>
                                 <tags>
                                     <tag>latest</tag>
-                                    <tag>mysqldb-docker-maven-plugin</tag>
+                                    <tag>postgres-docker-maven-plugin</tag>
                                 </tags>
                             </build>
                         </image>
@@ -210,7 +210,7 @@
                 <configuration>
                     <skip>true</skip>
                 </configuration>
-            </plugin>-->
+            </plugin>
         </plugins>
     </build>
 

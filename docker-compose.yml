@@ -2,7 +2,7 @@ version: "3"
 
 services:
   spring-boot-jwt:
-    image: thiernoamiroud/spring-boot-jwt:mysqldb-docker-maven-plugin
+    image: thiernoamiroud/spring-boot-jwt:postgres-docker-maven-plugin
 #    networks:
 #      - jwt-network
     ports:
