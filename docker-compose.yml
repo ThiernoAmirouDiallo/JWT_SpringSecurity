@@ -3,31 +3,53 @@ version: "3"
 services:
   spring-boot-jwt:
     image: thiernoamiroud/spring-boot-jwt:mysqldb-docker-maven-plugin
-    networks:
-      - jwt-network
+#    networks:
+#      - jwt-network
     ports:
-      - 8989:8080
-    depends_on:
-      - database
-    deploy:
-      replicas: 2
-      update_config:
-        parallelism: 1
-        delay: 120s
+      - 8000:8080
+#    depends_on:
+#      - database
+#    deploy:
+#      replicas: 2
+#      update_config:
+#        parallelism: 1
+#        delay: 120s
 
-  database:
-    image: mysql:5
-    networks:
-      - jwt-network
-    ports:
-      - 3306:3306
+#  database:
+#    image: mysql:5
+#    networks:
+#      - jwt-network
+#    ports:
+#      - 3306:3306
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=root
+#      - MYSQL_DATABASE=stage
+  postgres:
+    image: postgres:9.4
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=stage
+      - POSTGRES_DB=stage
+      - POSTGRES_USER=stage
+      - POSTGRES_PASSWORD=stagepwd
 
-networks:
-  jwt-network:
-    ipam: #for EC2 overlay network to work
-      config:
-        - subnet: 172.31.0.0/16
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  redis:
+    image: redis:2.8
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis:/var/lib/redis/data
+
+volumes:
+  redis:
+  postgres:
+
+#networks:
+#  jwt-network:
+#    ipam: #for EC2 overlay network to work
+#      config:
+#        - subnet: 172.31.0.0/16
 
