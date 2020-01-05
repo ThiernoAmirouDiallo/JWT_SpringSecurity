@@ -1,14 +1,23 @@
 version: "3"
 
 services:
-  spring-boot-jwt:
-    image: thiernoamiroud/spring-boot-jwt:postgres-docker-maven-plugin
-#    networks:
-#      - jwt-network
+  web:
+    image: thiernoamiroud/nginx-jwt
     ports:
-      - 8000:8080
-#    depends_on:
-#      - database
+      - 80:80
+    networks:
+      - jwt-network
+    depends_on:
+      - jwt
+
+  jwt:
+    image: thiernoamiroud/spring-boot-jwt:postgres-docker-maven-plugin
+    networks:
+      - jwt-network
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
 #    deploy:
 #      replicas: 2
 #      update_config:
@@ -26,6 +35,8 @@ services:
 #      - MYSQL_DATABASE=stage
   postgres:
     image: postgres:9.4
+    networks:
+      - jwt-network
     environment:
       - POSTGRES_DB=stage
       - POSTGRES_USER=stage
@@ -42,13 +53,15 @@ services:
       - '6379:6379'
     volumes:
       - redis:/var/lib/redis/data
+    networks:
+          - jwt-network
 
 volumes:
   redis:
   postgres:
 
-#networks:
-#  jwt-network:
+networks:
+  jwt-network:
 #    ipam: #for EC2 overlay network to work
 #      config:
 #        - subnet: 172.31.0.0/16
