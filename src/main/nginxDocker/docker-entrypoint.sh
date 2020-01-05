@@ -17,8 +17,8 @@ PLACEHOLDER_BACKEND_PORT="8080"
 # metadata. This allows us to dynamically configure nginx at runtime.
 #
 # http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html
-#PLACEHOLDER_VHOST="$(curl http://169.254.169.254/latest/meta-data/public-hostname)"
-PLACEHOLDER_VHOST="jwt"
+PLACEHOLDER_VHOST="$(curl http://169.254.169.254/latest/meta-data/public-hostname)"
+#PLACEHOLDER_VHOST="jwt"
 
 # Where is our default config located?
 DEFAULT_CONFIG_PATH="/etc/nginx/conf.d/default.conf"
